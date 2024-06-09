@@ -1,0 +1,137 @@
+<!-- using tailwind in our project we need ot follow some steps
+
+1.install tailwind using "npm install -D tailwindcss" in terminal
+
+2.create tailwind.config.js file using "npx tailwindcss init" in this new file we add the local of our html and js file where tailwind will be used
+
+3.create a input.css file where tailwind directive or custom component will be put and add 
+@tailwind base;
+@tailwind components;
+@tailwind utilities; to that file
+
+4.now we need to run tailwind script that will scan your html and js file for classes and add the css
+npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+here after-i is the input file where the boilerplate system goes
+after -o is the output file where vanilla css will be outputted
+the "--watch in the end is a flag so that we don't have to run this command again and again everytime we make changes to the input file , because of this watch anytime we make changes this cmd will be run and the input will be converted to the output"
+
+note:-this 4th step will need to be followed evertime you open this project , but you can make it easy by adding a script to your package.json
+i.e "scripts": {
+    "build": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+  }
+  so now next time you open this project just run "npm run build"
+
+5.now you can start using tailwind in html and js
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waitlist-Page </title>
+    <link rel="stylesheet" href="output-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <!-- this above is cdnjs for fontawsome so that the things that we included from font awsome directly get shown from there and we don't need to host them ,line bars in header. 
+        cdnjs uses a network of servers located around the world to deliver content to users quickly and efficiently. This ensures that resources hosted on cdnjs are accessible with low latency from anywhere in the world
+    -->
+</head>
+<body class="bg-amber-50 font-lato " >
+    <div class="min-h-screen px-5 py-3 flex flex-col gap-8 md:px-10 md:py-7 lg:px-28 lg:py-14">
+        <header class="flex justify-between">
+            <div class="flex items-center justify-center gap-2">
+                <img src="assets/Logo.svg" alt=""/>
+                <button class="text-xs text-white font-medium bg-gradient-to-r from-yellow-400 to-rose-700 px-2 py-1 rounded-3xl">Hosterr is hiring</button>
+            </div>
+            <div class="hidden lg:flex lg:items-center lg:justify-center">
+                <ul class="flex flex-row gap-5 text-md font-semibold text-gray-600">
+                    <li>
+                       <a class="text-gray-600" href="#">Plans</a>
+                    </li>
+                    <li>
+                       <a class="text-gray-600" href="#">Find Domain</a>
+                    </li>
+                    <li>
+                       <a class="text-gray-600" href="#">Why Hosterr</a>
+                    </li>
+               </ul>
+            </div>
+            <div class="lg:hidden">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="hidden lg:flex lg:items-center lg:justify-between gap-5">
+                <button class="text-md font-semibold text-gray-600">Sign in</button>
+                <button class="md:text-xs md:rounded-md md:h-11 px-3 block bg-blue-600 h-9 rounded-sm font-semibold text-sm text-white">Join Waitlist</button>
+            </div>
+            
+        </header>
+      
+        <main class="flex flex-col gap-6 lg:hidden">
+            <div class="flex justify-center items-center">
+                <img class="h-64 -rotate-45 md:h-80" src="assets/Blue Shape.svg" alt="">
+                <img class="absolute h-64 -rotate-[30deg] md:h-80" src="assets/Pink Shape.svg" alt="">
+                <img class="absolute h-64 -rotate-[15deg] md:h-80" src="assets/Purple Shape.svg" alt="">
+                <img class="absolute h-64 md:h-80" src="assets/Hero Image (Model).png" alt="">
+            </div>
+            <div>
+                <p class="text-4xl font-bold pt-6 leading-tight font-playfair">Host Your website in less than 5 minutes</p>
+                <p class="text-sm pt-3 font-normal leading-5 text-gray-400">With Hosterr get your website up and running in no less than 5 minutes with the most competitive pricing packages available online.</p>
+                <div class="md:flex-row flex flex-col gap-3 pt-4">
+                    <input class="md:w-64 md:h-11 block h-9 placeholder:text-sm placeholder:pl-5 shadow-inner placeholder:text-gray-400" type="email" placeholder="Enter e-mail address">
+                    <button class="md:text-xs md:rounded-md md:h-11 px-3 block bg-blue-600 h-9 rounded-sm font-semibold text-sm text-white">Join Waitlist</button>
+                </div>
+
+                <p class="text-sm flex mt-3 text-gray-400">
+                    <span class="flex justify-center items-center">
+                        <img class="h-4 mr-1.5" src="assets/Checkmark.svg" alt="">
+                    </span>
+                    No spam, ever.Unsubscribe anytime. 
+                </p>
+            </div>
+        </main>
+        <main class="hidden lg:flex lg:flex-row lg:justify-between lg:pt-20 lg:pb-14 ">
+            <div class="lg:max-w-md xl:max-w-xl">
+                <p class="text-4xl font-bold pt-6 leading-tight font-playfair">Host Your website in less than 5 minutes</p>
+                <p class="text-sm pt-3 font-normal leading-5 text-gray-400">With Hosterr get your website up and running in no less than 5 minutes with the most competitive pricing packages available online.</p>
+                <div class="md:flex-row flex flex-col gap-3 pt-4">
+                    <input class="md:w-64 md:h-11 block h-9 placeholder:text-sm placeholder:pl-5 shadow-inner placeholder:text-gray-400" type="email" placeholder="Enter e-mail address">
+                    <button class="md:text-xs md:rounded-md md:h-11 px-3 block bg-blue-600 h-9 rounded-sm font-semibold text-sm text-white">Join Waitlist</button>
+                </div>
+
+                <p class="text-sm flex mt-3 text-gray-400">
+                    <span class="flex justify-center items-center">
+                        <img class="h-4 mr-1.5" src="assets/Checkmark.svg" alt="">
+                    </span>
+                    No spam, ever.Unsubscribe anytime. 
+                </p>
+            </div>
+            <div class="flex justify-center items-center">
+                <img class="h-64 -rotate-45 xl:h-96 lg:h-80" src="assets/Blue Shape.svg" alt="">
+                <img class="absolute h-64 -rotate-[30deg] xl:h-96 lg:h-80" src="assets/Pink Shape.svg" alt="">
+                <img class="absolute h-64 -rotate-[15deg] xl:h-96 lg:h-80" src="assets/Purple Shape.svg" alt="">
+                <img class="absolute h-64 xl:h-96 lg:h-80" src="assets/Hero Image (Model).png" alt="">
+            </div>
+            
+        </main>
+
+        <footer class="md:flex md:flex-row md:justify-between md:items-center">
+            <ul class="flex flex-row gap-4 text-sm">
+                 <li>
+                    <a class="text-gray-600" href="#">Facebook</a>
+                 </li>
+                 <li>
+                    <a class="text-gray-600" href="#">Instagram</a>
+                 </li>
+                 <li>
+                    <a class="text-gray-600" href="#">Twitter</a>
+                 </li>
+            </ul>
+            <div class="flex mt-4 bg-white rounded-3xl shadow-inner w-80">
+                <img src="assets/Help Avatar.svg" alt="">
+                <input class="rounded-3xl placeholder:pl-2 ml-1 outline-none pl-2" type="text" placeholder="Have any Questions ?">
+            </div>
+        </footer>
+    </div>
+    
+</body>
+</html>
