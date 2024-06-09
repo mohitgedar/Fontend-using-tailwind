@@ -1,9 +1,11 @@
-{
+{   "homepage": "https://github.com/mohitgedar/Fontend-using-tailwind",
   "name": "waitlist-page-project-learning-tailwind",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "npx tailwindcss -i ./src/input.css -o ./public/output-style.css --watch"
   },
   "keywords": [],
